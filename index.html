@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trekwithkaushal - Live Trek Roster & Community Insights</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏔️</text></svg>">
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS Styling -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ============================================ -->
+    <!-- 1. PUBLIC NAVBAR HEADER (GUEST VIEW - IMAGE 1)-->
+    <!-- ============================================ -->
+    <header class="public-nav" id="public-header">
+        <div class="public-logo-container" onclick="window.location.reload();">
+            <div class="public-logo-box" id="public-logo-box">
+                <i class="fa-solid fa-mountain"></i>
+            </div>
+            <span class="public-logo-text" id="public-brand-logo">trekwithkaushal</span>
+        </div>
+        <nav class="public-menu">
+            <a href="#" class="active" id="link-menu-roster">Fixed Departure Hikes/Treks</a>
+            <a href="#" id="link-menu-leaderboard">Hikers Community</a>
+            <a href="#" id="link-menu-saturday-public">Saturday Subscription Hike</a>
+            <a href="#" id="link-menu-testimonials">About Us!</a>
+            
+            <!-- Dynamic Submenu Dropdown Container (Image 3) -->
+            <div class="more-dropdown-container">
+                <a href="#" class="more-trigger" onclick="return false;">More <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left:2px;"></i></a>
+                <div class="more-dropdown-menu">
+                    <a href="#" id="link-dropdown-signup"><i class="fa-solid fa-file-signature" style="margin-right:8px; color:var(--primary);"></i> Participation Form</a>
+                    <a href="#" id="link-dropdown-payment"><i class="fa-solid fa-qrcode" style="margin-right:8px; color:var(--primary);"></i> Payment Info</a>
+                    <a href="#" id="link-dropdown-feedback"><i class="fa-solid fa-comments" style="margin-right:8px; color:var(--primary);"></i> Feedback Form</a>
+                    <a href="#" id="link-dropdown-faq"><i class="fa-solid fa-shield-halved" style="margin-right:8px; color:var(--primary);"></i> FAQ, Safety & Policy</a>
+                    <a href="#" id="link-dropdown-prep"><i class="fa-solid fa-kit-medical" style="margin-right:8px; color:var(--primary);"></i> Trek preparedness</a>
+                    
+                    <!-- Nested Itineraries list (Image 1) -->
+                    <div class="nested-itineraries-container">
+                        <a href="#" class="itineraries-trigger" onclick="return false;"><i class="fa-solid fa-map-location-dot" style="margin-right:8px; color:var(--primary);"></i> Itineraries <i class="fa-solid fa-caret-right" style="margin-left:auto; font-size:10px;"></i></a>
+                        <div class="nested-itineraries-menu">
+                            <a href="#" onclick="selectItinerary('Sanga Lamatar'); return false;">Sanga Lamatar</a>
+                            <a href="#" onclick="selectItinerary('Lamatar Godawari'); return false;">Lamatar Godawari</a>
+                            <a href="#" onclick="selectItinerary('Godawari Circuit'); return false;">Godawari Circuit</a>
+                            <a href="#" onclick="selectItinerary('Godawari Phulchoki'); return false;">Godawari Phulchoki</a>
+                            <a href="#" onclick="selectItinerary('Godawari Takhel'); return false;">Godawari Takhel</a>
+                            <a href="#" onclick="selectItinerary('Lower Pharping'); return false;">Lower Pharping</a>
+                            <a href="#" onclick="selectItinerary('Singla Mane'); return false;">Singla Mane</a>
+                            <a href="#" onclick="selectItinerary('Pikey Peak'); return false;">Pikey Peak</a>
+                            <a href="#" onclick="selectItinerary('Nagthali Rasuwa'); return false;">Nagthali Rasuwa</a>
+                            <a href="#" onclick="selectItinerary('Deudhunga Dolakha'); return false;">Deudhunga Dolakha</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="public-header-actions">
+            <a id="header-whatsapp-btn" href="https://wa.me/9779800000000" target="_blank" class="whatsapp-btn">WHATSAPP</a>
+            <button class="register-btn" id="btn-public-register">REGISTER</button>
+        </div>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- MOUNTAIN HERO BANNER (Guest Public View)     -->
+    <!-- ============================================ -->
+    <div id="mountain-hero-section">
+        <!-- Full-width hero photo with text overlay -->
+        <section class="mountain-hero">
+            <div class="mountain-hero-content">
+                <div class="mountain-hero-badge">
+                    <i class="fa-solid fa-mountain"></i>
+                    Nepal Himalaya Expeditions
+                </div>
+                <h1 class="mountain-hero-title" id="public-hero-title">
+                    Trek The Roof<br>Of The World
+                </h1>
+                <p class="mountain-hero-desc" id="public-hero-desc">
+                    Join expert-guided treks through Nepal's most breathtaking landscapes. Fixed departures, verified guides, and a trusted community of over 2,000 hikers.
+                </p>
+                <div class="mountain-hero-actions">
+                    <button class="hero-btn-primary" id="hero-cta-register">
+                        <i class="fa-solid fa-file-signature"></i> Register Now
+                    </button>
+                    <a href="#" class="hero-btn-secondary" id="hero-cta-view">
+                        <i class="fa-solid fa-calendar-days"></i> View Trek Schedule
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats bar below hero -->
+        <div class="hero-stats-bar">
+            <div class="hero-stat-item">
+                <div class="hero-stat-icon"><i class="fa-solid fa-route"></i></div>
+                <div class="hero-stat-text">
+                    <strong id="public-stat1-val">10+</strong>
+                    <span id="public-stat1-lbl">Trek Routes</span>
+                </div>
+            </div>
+            <div class="hero-stat-item">
+                <div class="hero-stat-icon"><i class="fa-solid fa-users"></i></div>
+                <div class="hero-stat-text">
+                    <strong id="public-stat2-val">2,048+</strong>
+                    <span id="public-stat2-lbl">Happy Hikers</span>
+                </div>
+            </div>
+            <div class="hero-stat-item">
+                <div class="hero-stat-icon"><i class="fa-solid fa-person-hiking"></i></div>
+                <div class="hero-stat-text">
+                    <strong>223+</strong>
+                    <span>Events Conducted</span>
+                </div>
+            </div>
+            <div class="hero-stat-item">
+                <div class="hero-stat-icon"><i class="fa-solid fa-shield-heart"></i></div>
+                <div class="hero-stat-text">
+                    <strong>100%</strong>
+                    <span>Safe & Verified</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive expanding mountain photo strip -->
+        <div class="mountain-photo-strip" id="hero-photo-strip" style="overflow-x: auto; display: flex; gap: 0;">
+            <div class="photo-cell">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600&auto=format&fit=crop" alt="Mountain trail Nepal">
+            </div>
+            <div class="photo-cell">
+                <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=600&auto=format&fit=crop" alt="Himalayan trek">
+            </div>
+            <div class="photo-cell">
+                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=600&auto=format&fit=crop" alt="Snow mountain peaks">
+            </div>
+            <div class="photo-cell">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600&auto=format&fit=crop" alt="Nepal mountain landscape">
+            </div>
+            <div class="photo-cell">
+                <img src="https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=600&auto=format&fit=crop" alt="Trekking adventure">
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- MAIN APPLICATION WRAPPER                     -->
+    <!-- ============================================ -->
+    <div id="admin-app" class="app-container">
+        
+        <!-- 2. ADMIN SIDEBAR NAVIGATION (HIDDEN FOR GUESTS) -->
+        <aside class="sidebar" id="admin-sidebar" style="display: none;">
+            <div class="sidebar-logo">
+                <div id="side-logo-icon-container" style="display: flex; align-items: center; justify-content: center;">
+                    <i id="side-logo-icon" class="fa-solid fa-mountain sidebar-logo-icon"></i>
+                </div>
+                <span id="side-logo-text" class="sidebar-logo-text">trekwithkaushal</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <!-- Admin Tabs -->
+                <a href="#" class="nav-item active" data-tab="dashboard">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>Trek Schedule & Roster</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="leaderboard">
+                    <i class="fa-solid fa-people-group"></i>
+                    <span>Hikers Community</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="treks">
+                    <i class="fa-solid fa-mountain-sun"></i>
+                    <span>Trek Management</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="saturday-hikes">
+                    <i class="fa-solid fa-person-hiking"></i>
+                    <span>Saturday Hikes</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="community-log">
+                    <i class="fa-solid fa-users-viewfinder"></i>
+                    <span>Community Log</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="costs">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>Cost Management</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="bookings">
+                    <i class="fa-solid fa-address-book"></i>
+                    <span>Trek Bookings</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="payments">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <span>Payment Verification</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="content">
+                    <i class="fa-solid fa-pen-nib"></i>
+                    <span>Content & Logo</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="feedback">
+                    <i class="fa-solid fa-comments"></i>
+                    <span>Client Testimonials</span>
+                </a>
+            </nav>
+            
+            <!-- Sidebar Footer: Admin profile controls -->
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">AD</div>
+                    <div class="user-info">
+                        <div class="user-name">Kaushal Verma</div>
+                        <div class="user-role">Lead Administrator</div>
+                    </div>
+                </div>
+                <button class="logout-btn">
+                    <i class="fa-solid fa-power-off"></i> Sign Out
+                </button>
+            </div>
+        </aside>
+
+        <!-- 3. MAIN WORKSPACE CONTENT CONTAINER -->
+        <main class="main-content" id="main-content-panel">
+            
+            <!-- Dynamic Content Header (Only visible for Admins) -->
+            <header class="content-header" id="admin-content-header" style="display: none;">
+                <div class="header-title">
+                    <h1 id="panel-title">Trek Control Panel</h1>
+                    <p class="dynamic-date"></p>
+                </div>
+                <div class="header-actions">
+                    <div id="system-badge" class="header-date">
+                        <i class="fa-solid fa-user-shield"></i>
+                        <span>Administrator Mode</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ============================================ -->
+            <!-- TAB PANEL: 📅 TREK SCHEDULE & LIVE ROSTER    -->
+            <!-- ============================================ -->
+            <div id="dashboard-panel" class="tab-panel active">
+                
+                <!-- Quick Info Ribbon (Admin Only) -->
+                <div class="stats-grid admin-only-card" style="display: none;">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="color:var(--primary);"><i class="fa-solid fa-circle-dollar-to-slot"></i></div>
+                        <div class="stat-value" id="stat-profit">Rs. 0</div>
+                        <div class="stat-label">Net Profit</div>
+                    </div>
+                    <div class="stat-card" style="border-left: 3px solid var(--danger);">
+                        <div class="stat-icon" style="color:var(--danger);"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                        <div class="stat-value" id="stat-costs">Rs. 0</div>
+                        <div class="stat-label">Expenses Logged</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="color:var(--secondary);"><i class="fa-solid fa-receipt"></i></div>
+                        <div class="stat-value" id="stat-bookings">0</div>
+                        <div class="stat-label">Bookings Count</div>
+                    </div>
+                </div>
+
+                <!-- Trek Roster Card -->
+                <div class="panel-card animate-slide-in">
+                    <div class="card-header" style="border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 16px;">
+                        <div>
+                            <h2 style="font-size: 24px; font-weight: 800; color: #0f172a; text-transform: uppercase;" id="roster-headline">trekwithkaushal</h2>
+                            <p class="card-title-sub" style="text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;">Trek Schedule & Live Roster</p>
+                        </div>
+                    </div>
+
+                    <!-- Weekend Hikes Section Header -->
+                    <div class="schedule-section-header">Weekend Hikes (&le; 2 Days)</div>
+                    <div id="weekend-roster-body" class="trek-cards-container">
+                        <!-- Populated dynamically as cards -->
+                    </div>
+
+                    <!-- Extended Treks Section Header -->
+                    <div class="schedule-section-header">Extended Treks (&gt; 2 Days)</div>
+                    <div id="extended-roster-body" class="trek-cards-container">
+                        <!-- Populated dynamically as cards -->
+                    </div>
+
+                    <!-- Completed Adventures Section Header -->
+                    <div class="schedule-section-header" style="background: linear-gradient(135deg, #64748b 0%, #475569 100%); margin-top: 40px;"><i class="fa-solid fa-clock-rotate-left"></i> Completed &amp; Past Adventures Archive</div>
+                    <div id="completed-roster-body" class="trek-cards-container">
+                        <!-- Populated dynamically as cards -->
+                    </div>
+                </div>
+            </div>
+                        <!-- ============================================ -->
+            <!-- TAB PANEL: 🏆 HIKERS COMMUNITY              -->
+            <!-- ============================================ -->
+            <div id="leaderboard-panel" class="tab-panel">
+                
+                <!-- ===== SECTION 1: COMMUNITY INSIGHTS HEADER ===== -->
+                <h2 class="community-section-title"><i class="fa-solid fa-chart-line"></i> Community Insights</h2>
+                
+                <div class="community-insights-stats animate-slide-in">
+                    <div class="insight-stat-card">
+                        <div class="insight-stat-value" id="ci-total-walkers">0</div>
+                        <div class="insight-stat-label"><i class="fa-solid fa-person-walking"></i> TOTAL WALKERS</div>
+                    </div>
+                    <div class="insight-stat-card">
+                        <div class="insight-stat-value" id="ci-hikes-conducted">0</div>
+                        <div class="insight-stat-label"><i class="fa-solid fa-shoe-prints"></i> HIKES CONDUCTED</div>
+                    </div>
+                    <div class="insight-stat-card">
+                        <div class="insight-stat-value" id="ci-community-km">0 km</div>
+                        <div class="insight-stat-label"><i class="fa-solid fa-road"></i> COMMUNITY KM</div>
+                    </div>
+                    <div class="insight-stat-card">
+                        <div class="insight-stat-value" id="ci-recent-30d">0</div>
+                        <div class="insight-stat-label"><i class="fa-solid fa-calendar-week"></i> RECENT (30D)</div>
+                    </div>
+                </div>
+
+                <!-- ===== SECTION 2: HIKERS & TREKKERS DUAL BOARDS ===== -->
+                <h2 class="community-section-title" style="margin-top: 48px;"><i class="fa-solid fa-trophy"></i> Hikers &amp; Trekkers</h2>
+                
+                <div class="leaderboard-row animate-slide-in">
+                    
+                    <!-- Hikers Board Column -->
+                    <div class="leaderboard-card" id="hikers-board-card">
+                        <div class="card-header" style="margin-bottom: 8px;">
+                            <div>
+                                <h3 class="leaderboard-title"><i class="fa-solid fa-hiking" style="margin-right:6px; color:var(--primary);"></i> Hikers Board</h3>
+                                <p class="leaderboard-subhead">Events &le; 2 Days &bull; Ranked by Activity</p>
+                            </div>
+                        </div>
+
+                        <!-- Stat Boxes -->
+                        <div class="leaderboard-stats-row">
+                            <div class="leaderboard-stat-box hiker-stat">
+                                <div class="lead-stat-val" id="h-count-walkers">0</div>
+                                <div class="lead-stat-lbl">Hikers</div>
+                            </div>
+                            <div class="leaderboard-stat-box hiker-stat">
+                                <div class="lead-stat-val" id="h-count-events">0</div>
+                                <div class="lead-stat-lbl">Events</div>
+                            </div>
+                            <div class="leaderboard-stat-box hiker-stat">
+                                <div class="lead-stat-val" id="h-count-km">0 km</div>
+                                <div class="lead-stat-lbl">Total KM</div>
+                            </div>
+                        </div>
+
+                        <!-- Time Filters -->
+                        <div class="filter-tabs" id="hiker-time-filters">
+                            <button class="filter-tab active" data-period="30d">30d</button>
+                            <button class="filter-tab" data-period="60d">60d</button>
+                            <button class="filter-tab" data-period="90d">90d</button>
+                            <button class="filter-tab" data-period="1yr">1yr</button>
+                            <button class="filter-tab" data-period="all">All</button>
+                        </div>
+                        <!-- Sort Filters -->
+                        <div class="filter-tabs" style="margin-bottom: 20px;" id="hiker-sort-filters">
+                            <button class="filter-tab active" data-sort="distance" style="border-radius:4px;">By Distance</button>
+                            <button class="filter-tab" data-sort="count" style="border-radius:4px;">By Count</button>
+                        </div>
+                        
+                        <!-- Ranks table -->
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Name</th>
+                                        <th>Dist</th>
+                                        <th>Hikes</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="hikers-leaderboard-body">
+                                    <!-- Dynamic rankings -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <button class="dashed-more-btn" id="btn-see-more-hikers">See More <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></button>
+                    </div>
+
+                    <!-- Trekkers Board Column -->
+                    <div class="leaderboard-card trekkers" id="trekkers-board-card">
+                        <div class="card-header" style="margin-bottom: 8px;">
+                            <div>
+                                <h3 class="leaderboard-title"><i class="fa-solid fa-mountain-sun" style="margin-right:6px; color:#7c3aed;"></i> Trekkers Board</h3>
+                                <p class="leaderboard-subhead">Events &gt; 2 Days &bull; Distance Champions</p>
+                            </div>
+                        </div>
+
+                        <!-- Stat Boxes -->
+                        <div class="leaderboard-stats-row">
+                            <div class="leaderboard-stat-box trekker-stat">
+                                <div class="lead-stat-val" id="t-count-walkers">0</div>
+                                <div class="lead-stat-lbl">Trekkers</div>
+                            </div>
+                            <div class="leaderboard-stat-box trekker-stat">
+                                <div class="lead-stat-val" id="t-count-events">0</div>
+                                <div class="lead-stat-lbl">Events</div>
+                            </div>
+                            <div class="leaderboard-stat-box trekker-stat">
+                                <div class="lead-stat-val" id="t-count-km">0 km</div>
+                                <div class="lead-stat-lbl">Total KM</div>
+                            </div>
+                        </div>
+
+                        <!-- Time Filters -->
+                        <div class="filter-tabs" id="trekker-time-filters">
+                            <button class="filter-tab active" data-period="30d">30d</button>
+                            <button class="filter-tab" data-period="60d">60d</button>
+                            <button class="filter-tab" data-period="90d">90d</button>
+                            <button class="filter-tab" data-period="1yr">1yr</button>
+                            <button class="filter-tab" data-period="all">All</button>
+                        </div>
+                        <!-- Sort Filters -->
+                        <div class="filter-tabs" style="margin-bottom: 20px;" id="trekker-sort-filters">
+                            <button class="filter-tab active" data-sort="distance" style="border-radius:4px;">By Distance</button>
+                            <button class="filter-tab" data-sort="count" style="border-radius:4px;">By Count</button>
+                        </div>
+
+                        <!-- Ranks table -->
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Name</th>
+                                        <th>Dist</th>
+                                        <th>Treks</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="trekkers-leaderboard-body">
+                                    <!-- Dynamic rankings -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <button class="dashed-more-btn" id="btn-see-more-trekkers">See More <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></button>
+                    </div>
+
+                </div>
+
+                <!-- ===== SECTION 3: COMMUNITY JOURNEY BOARD + KM JOURNEY ===== -->
+                <div class="community-journey-row animate-slide-in" style="margin-top: 48px;">
+                    
+                    <!-- Community Journey Board (Combined Leaderboard) -->
+                    <div class="journey-board-card">
+                        <div class="journey-board-header">
+                            <h3><i class="fa-solid fa-ranking-star" style="margin-right:6px;"></i> Community Journey Board</h3>
+                        </div>
+                        
+                        <!-- Journey Board Time Filters -->
+                        <div class="filter-tabs" id="journey-time-filters" style="margin: 16px 0;">
+                            <button class="filter-tab active" data-period="30d">30 Days</button>
+                            <button class="filter-tab" data-period="60d">60 Days</button>
+                            <button class="filter-tab" data-period="90d">90 Days</button>
+                            <button class="filter-tab" data-period="1yr">1 Year</button>
+                            <button class="filter-tab" data-period="all">Overall</button>
+                        </div>
+                        <div class="filter-tabs" id="journey-sort-filters" style="margin-bottom: 20px;">
+                            <button class="filter-tab active" data-sort="distance" style="border-radius:4px;">By Distance</button>
+                            <button class="filter-tab" data-sort="count" style="border-radius:4px;">By Hike Count</button>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Name</th>
+                                        <th>Distance</th>
+                                        <th>Hikes</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="journey-board-body">
+                                    <!-- Dynamic combined rankings -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <button class="dashed-more-btn" id="btn-see-more-journey">See More Hikers <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></button>
+                    </div>
+
+                    <!-- Community KM Journey Panel -->
+                    <div class="km-journey-card">
+                        <h3 class="km-journey-title"><i class="fa-solid fa-chart-area" style="margin-right:6px;"></i> Community KM Journey</h3>
+                        
+                        <!-- KM Journey Time Filters -->
+                        <div class="filter-tabs" id="km-time-filters" style="margin: 16px 0;">
+                            <button class="filter-tab active" data-period="all">All Time</button>
+                            <button class="filter-tab" data-period="1yr">1 Year</button>
+                            <button class="filter-tab" data-period="90d">90 Days</button>
+                            <button class="filter-tab" data-period="60d">60 Days</button>
+                            <button class="filter-tab" data-period="30d">30 Days</button>
+                        </div>
+
+                        <div class="km-journey-stats-grid">
+                            <div class="km-stat-box">
+                                <div class="km-stat-label">TOTAL KM</div>
+                                <div class="km-stat-value" id="km-total">0 km</div>
+                            </div>
+                            <div class="km-stat-box">
+                                <div class="km-stat-label">EVENTS</div>
+                                <div class="km-stat-value" id="km-events">0</div>
+                            </div>
+                            <div class="km-stat-box">
+                                <div class="km-stat-label">HIKE KM</div>
+                                <div class="km-stat-value" id="km-hike">0 km</div>
+                            </div>
+                            <div class="km-stat-box">
+                                <div class="km-stat-label">TREK KM</div>
+                                <div class="km-stat-value" id="km-trek">0 km</div>
+                            </div>
+                        </div>
+
+                        <!-- KM Milestones Visual -->
+                        <div class="km-milestones-container" id="km-milestones">
+                            <!-- Dynamically rendered milestones -->
+                        </div>
+
+                        <!-- Mini KM Progress Bar -->
+                        <div class="km-progress-section">
+                            <div class="km-progress-labels">
+                                <span><i class="fa-solid fa-shoe-prints" style="color:var(--primary);"></i> Hike KM</span>
+                                <span><i class="fa-solid fa-mountain" style="color:#7c3aed;"></i> Trek KM</span>
+                            </div>
+                            <div class="km-progress-bar" id="km-progress-bar">
+                                <div class="km-progress-hike" id="km-progress-hike"></div>
+                                <div class="km-progress-trek" id="km-progress-trek"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== SECTION 4: COMMUNITY DNA ===== -->
+                <div class="community-dna-wrapper animate-slide-in" style="margin-top: 48px;">
+                    <div class="community-dna-banner">
+                        <div class="dna-banner-icon">👥</div>
+                        <h2 class="dna-banner-title">Community DNA</h2>
+                        <p class="dna-banner-subtitle">Who is walking Nepal with us?</p>
+                        
+                        <!-- DNA Time Filters -->
+                        <div class="filter-tabs dna-time-filters" id="dna-time-filters">
+                            <button class="filter-tab dna-filter active" data-period="30d">30 Days</button>
+                            <button class="filter-tab dna-filter" data-period="60d">60 Days</button>
+                            <button class="filter-tab dna-filter" data-period="90d">90 Days</button>
+                            <button class="filter-tab dna-filter" data-period="1yr">1 Year</button>
+                            <button class="filter-tab dna-filter" data-period="all">Overall</button>
+                        </div>
+                    </div>
+
+                    <div class="dna-charts-row">
+                        <!-- Gender Distribution Donut -->
+                        <div class="dna-chart-card">
+                            <h4 class="dna-chart-label">GENDER DISTRIBUTION</h4>
+                            <div class="dna-donut-container">
+                                <div class="dna-donut" id="dna-gender-donut"></div>
+                                <div class="dna-donut-center" id="dna-donut-center">
+                                    <span id="dna-donut-total">0</span>
+                                    <small>Total</small>
+                                </div>
+                            </div>
+                            <div class="dna-legend">
+                                <div class="dna-legend-item"><span class="dna-legend-dot" style="background:#d4e157;"></span> Unknown</div>
+                                <div class="dna-legend-item"><span class="dna-legend-dot" style="background:#4dd0e1;"></span> Male</div>
+                                <div class="dna-legend-item"><span class="dna-legend-dot" style="background:#ffb74d;"></span> Female</div>
+                            </div>
+                        </div>
+
+                        <!-- Age Groups Bar Chart -->
+                        <div class="dna-chart-card">
+                            <h4 class="dna-chart-label">AGE GROUPS</h4>
+                            <div class="dna-age-chart" id="dna-age-chart">
+                                <!-- Dynamically rendered age bars -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <!-- ============================================ -->
+            <!-- TAB PANEL: SATURDAY PUBLIC PAGE              -->
+            <!-- ============================================ -->
+            <div id="saturday-public-panel" class="tab-panel">
+                <div class="panel-card animate-slide-in" id="saturday-public-content-container" style="padding: 40px; border:none; box-shadow:none; background:transparent;">
+                    <!-- JS Populated saturday public content -->
+                </div>
+            </div>
+
+            <!-- ========================================================= -->
+            <!-- TAB PANEL: 📝 OUTDOOR ADVENTURE SIGNUP (IMAGES 2, 4, 5) -->
+            <!-- ========================================================= -->
+            <div id="signup-panel" class="tab-panel">
+                <!-- Blue Signup Gradient Header -->
+                <div style="background: linear-gradient(135deg, #1d4ed8, #059669); color: white; padding: 24px; border-radius: var(--radius-md) var(--radius-md) 0 0; text-align: center; margin-bottom: 24px; box-shadow: var(--shadow-sm);">
+                    <h2 style="font-size: 24px; font-weight: 800; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-solid fa-mountain-city"></i> Outdoor Adventure Signup</h2>
+                    <p style="font-size: 13px; margin-top: 6px; opacity: 0.9;">Join exciting Treks & Hikes. Please review the itinerary before signing up.</p>
+                </div>
+
+                <form id="public-signup-form">
+                    <!-- Section 1: Trek Details -->
+                    <div class="panel-card" style="margin-bottom: 20px;">
+                        <h3 style="font-size: 15px; font-weight:800; color: #1e3a8a; display: flex; align-items: center; gap: 6px; margin-bottom: 16px;"><i class="fa-solid fa-location-dot"></i> Trek Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="signup-trek-select">Select Trek *</label>
+                                <select id="signup-trek-select" class="form-select" required>
+                                    <!-- Populated via JS -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-date-select">Select Date *</label>
+                                <select id="signup-date-select" class="form-select" required>
+                                    <!-- Populated via JS -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Personal Info -->
+                    <div class="panel-card" style="margin-bottom: 20px;">
+                        <h3 style="font-size: 15px; font-weight:800; color: #1e3a8a; display: flex; align-items: center; gap: 6px; margin-bottom: 16px;"><i class="fa-solid fa-user"></i> Your Information (Primary Contact)</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="signup-name">Full name *</label>
+                                <input type="text" id="signup-name" class="form-input" placeholder="e.g. Arjun Koirala" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-phone">Phone *</label>
+                                <input type="text" id="signup-phone" class="form-input" placeholder="e.g. 98XXXXXXXX" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="signup-whatsapp">WhatsApp Number</label>
+                                <input type="text" id="signup-whatsapp" class="form-input" placeholder="If different from phone">
+                                <span style="font-size: 10px; color: var(--text-muted);">Leave blank if same as phone</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-emergency">Emergency Backup Contact</label>
+                                <input type="text" id="signup-emergency" class="form-input" placeholder="e.g. 98XXXXXXXX" required>
+                                <span style="font-size: 10px; color: var(--text-muted);">A number we can call if unreachable</span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="signup-email">Email</label>
+                                <input type="email" id="signup-email" class="form-input" placeholder="e.g. arjun@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-profession">Profession</label>
+                                <input type="text" id="signup-profession" class="form-input" placeholder="e.g. Student, Engineer">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Group & About You -->
+                    <div class="panel-card" style="margin-bottom: 20px;">
+                        <h3 style="font-size: 15px; font-weight:800; color: #1e3a8a; display: flex; align-items: center; gap: 6px; margin-bottom: 16px;"><i class="fa-solid fa-users"></i> Group & About You</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Solo or Group?</label>
+                                <div style="display: flex; gap: 16px; align-items: center; height: 38px;">
+                                    <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;"><input type="radio" name="signup-group-mode" value="Solo" checked id="radio-solo"> Solo</label>
+                                    <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;"><input type="radio" name="signup-group-mode" value="Group" id="radio-group"> Group</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-age-group">Age group</label>
+                                <select id="signup-age-group" class="form-select" required>
+                                    <option value="">Select</option>
+                                    <option value="18-25">18-25</option>
+                                    <option value="26-35">26-35</option>
+                                    <option value="36-50">36-50</option>
+                                    <option value="50+">50+</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="signup-gender">Gender</label>
+                                <select id="signup-gender" class="form-select" required>
+                                    <option value="">Select</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Team Members Container -->
+                        <div id="team-members-wrapper" style="display: none; margin-top: 16px; border-top: 1px solid var(--border); padding-top: 16px;">
+                            <label>Team Members (Optional)</label>
+                            <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px;">Add details to register them alongside you. They will be added as separate registrations.</p>
+                            <div id="team-members-list" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px;">
+                                <!-- Team members inputs appended via JS -->
+                            </div>
+                            <button type="button" class="btn btn-secondary btn-sm" id="btn-add-team-member"><i class="fa-solid fa-plus"></i> Add Team Member</button>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Health -->
+                    <div class="panel-card" style="margin-bottom: 20px;">
+                        <h3 style="font-size: 15px; font-weight:800; color: #1e3a8a; display: flex; align-items: center; gap: 6px; margin-bottom: 16px;"><i class="fa-solid fa-heart-pulse"></i> Health</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Any medical conditions?</label>
+                                <div style="display: flex; gap: 16px; align-items: center; height: 38px;">
+                                    <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;"><input type="radio" name="signup-medical" value="No" checked> No</label>
+                                    <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;"><input type="radio" name="signup-medical" value="Yes"> Yes</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-medical-details">Details (if any)</label>
+                                <input type="text" id="signup-medical-details" class="form-input" placeholder="e.g. Asthma, allergies">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-completed-treks">Recent treks completed</label>
+                            <input type="text" id="signup-completed-treks" class="form-input" placeholder="e.g. Nagarkot, Poon Hill">
+                        </div>
+                    </div>
+
+                    <!-- Section 5: Safety & Preferences -->
+                    <div class="panel-card" style="margin-bottom: 20px;">
+                        <h3 style="font-size: 15px; font-weight:800; color: #1e3a8a; display: flex; align-items: center; gap: 6px; margin-bottom: 16px;"><i class="fa-solid fa-shield-heart"></i> Safety & Preferences</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>I agree to safety rules? *</label>
+                                <div style="display: flex; gap: 16px; align-items: center; height: 38px;">
+                                    <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;"><input type="radio" name="signup-rules" value="Yes" required checked> Yes</label>
+                                    <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;"><input type="radio" name="signup-rules" value="No"> No</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Guide Preference</label>
+                                <div style="display: flex; gap: 16px; align-items: center; height: 38px;">
+                                    <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;"><input type="radio" name="signup-guide-pref" value="Guided" checked> Guided</label>
+                                    <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;"><input type="radio" name="signup-guide-pref" value="Unguided"> Unguided</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Transport Preference</label>
+                                <div style="display: flex; gap: 16px; align-items: center; height: 38px;">
+                                    <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;"><input type="radio" name="signup-transport-pref" value="Jeep" checked> Jeep</label>
+                                    <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;"><input type="radio" name="signup-transport-pref" value="Bus"> Bus</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-notes">Additional Notes</label>
+                            <textarea id="signup-notes" placeholder="e.g. Dietary requirements, special requests"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn" style="width:100%; height:48px; font-size:14px; background:#1d4ed8;"><i class="fa-solid fa-file-signature"></i> Book Now</button>
+                </form>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- TAB PANEL: 💳 PAYMENT SCREENSHOT CONFIRMATION -->
+            <!-- ============================================ -->
+            <div id="payment-panel" class="tab-panel">
+                <div class="panel-card animate-slide-in">
+                    <div class="card-header" style="border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 16px;">
+                        <div>
+                            <h2 style="font-size: 20px; font-weight: 800; color: var(--primary);"><i class="fa-solid fa-qrcode"></i> QR Deposit Verification</h2>
+                            <p class="card-title-sub">Upload your payment transfer screenshot receipt to confirm your trek registration.</p>
+                        </div>
+                    </div>
+
+                    <div class="panel-grid">
+                        <!-- Payment Instructions -->
+                        <div style="border-right: 1px solid var(--border); padding-right: 28px;">
+                            <h4 style="font-weight: 800; margin-bottom:12px; font-size: 13px;">Transfer Details</h4>
+                            <p style="font-size:12px; color:var(--text-muted); line-height: 1.6; margin-bottom:16px;">
+                                Please scan the QR code below or transfer the deposit to our registered bank account. Note your transaction ID and take a screenshot of the confirmation page.
+                            </p>
+                            <!-- Interactive Bank Account Details -->
+                            <div style="background:var(--bg-light); padding:16px; border-radius:6px; margin-bottom:16px;">
+                                <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Bank Account Info</div>
+                                <div style="font-size:13px; font-weight:800; margin-top:4px;" id="public-bank-name">Nabil Bank Ltd.</div>
+                                <div style="font-size:13px; font-weight:600; color:var(--primary); margin-top:2px;" id="public-bank-acc">Acct: 0110175003291</div>
+                                <div style="font-size:12px; margin-top:2px;" id="public-bank-holder">Name: Trek With Kaushal Pvt. Ltd.</div>
+                            </div>
+                            <!-- Visual QR Code Mock -->
+                            <div id="public-qr-container" style="width: 250px; height: 250px; max-width: 100%; margin: 0 auto; border: 1px solid var(--border); padding: 6px; border-radius:6px; background: white; display: flex; align-items:center; justify-content:center; flex-direction:column; position:relative;">
+                                <i class="fa-solid fa-qrcode" style="font-size: 110px; color:#0f172a;"></i>
+                                <div style="position:absolute; width:28px; height:28px; background:white; display:flex; align-items:center; justify-content:center; border-radius:4px; border:1px solid #ddd;">
+                                    <i class="fa-solid fa-mountain" style="color:var(--primary); font-size:14px;"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Upload Receipt Form -->
+                        <div>
+                            <form id="payment-screenshot-form">
+                                <div class="form-group">
+                                    <label for="payment-booking-select">Select Trek / Hike *</label>
+                                    <select id="payment-booking-select" class="form-select" required>
+                                        <option value="">Choose trek/hike to pay for...</option>
+                                        <!-- Populated dynamically via JS -->
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="payment-screenshot-file">Upload Receipt Screenshot *</label>
+                                    <input type="file" id="payment-screenshot-file" class="form-input" accept="image/*" style="padding:6px;" required>
+                                    <div style="margin-top: 10px; border: 1px dashed var(--border); border-radius:6px; height:120px; display:flex; align-items:center; justify-content:center; background:var(--bg-light); overflow:hidden;" id="receipt-preview-box">
+                                        <i class="fa-solid fa-cloud-arrow-up" style="font-size: 24px; color: var(--text-disabled);"></i>
+                                        <span style="font-size: 11px; color: var(--text-muted); margin-left: 8px;">Screenshot Preview</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="payment-tx-notes">Transaction Reference Notes (Optional)</label>
+                                    <textarea id="payment-tx-notes" placeholder="e.g. Transaction ID: TXN92019302, transferred from Nabil account"></textarea>
+                                </div>
+
+                                <button type="submit" class="btn" style="width:100%; background:var(--primary);"><i class="fa-solid fa-cloud-arrow-up"></i> Confirm Payment</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- TAB PANEL: FAQ & SAFETY POLICY MODULE        -->
+            <!-- ============================================ -->
+            <div id="faq-panel" class="tab-panel">
+                <div class="panel-card animate-slide-in">
+                    <h2 style="font-size:24px; font-weight:800; color:var(--primary); margin-bottom:16px;"><i class="fa-solid fa-circle-question"></i> FAQ & Safety Rules Policy</h2>
+                    <p class="text-muted" style="margin-bottom:20px;">Review the community code of conduct, trail protocols, and altitude safety protocols.</p>
+                    
+                    <div style="display:flex; flex-direction:column; gap:16px;">
+                        <div style="border-bottom:1px solid var(--border); padding-bottom:12px;">
+                            <h4 style="font-weight:800; font-size:14px; margin-bottom:6px;">1. What is the trail safety policy?</h4>
+                            <p style="font-size:12px; color:var(--text-muted); line-height:1.6;">Always follow the team guide/sherpa. Keep to the mountain side when pack animals are passing. Carry a basic medical card detailing emergency contacts and emergency backup info.</p>
+                        </div>
+                        <div style="border-bottom:1px solid var(--border); padding-bottom:12px;">
+                            <h4 style="font-weight:800; font-size:14px; margin-bottom:6px;">2. What should I do in case of altitude sickness?</h4>
+                            <p style="font-size:12px; color:var(--text-muted); line-height:1.6;">Inform your team leader Sundar Gurung or Pasang Sherpa immediately. Descend immediately if symptoms (headache, dizziness, nausea) worsen. Oxygen logs are managed at every camp stop.</p>
+                        </div>
+                        <div style="border-bottom:1px solid var(--border); padding-bottom:12px;">
+                            <h4 style="font-weight:800; font-size:14px; margin-bottom:6px;">3. How does deposit verification work?</h4>
+                            <p style="font-size:12px; color:var(--text-muted); line-height:1.6;">Submit your registration via our <strong>Participation Form</strong>. Go to the <strong>Payment Info</strong> tab, scan our QR, and upload your payment transfer screenshot. Admins will verify the screenshot in the Reconciliation Console.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- TAB PANEL: TREK PREPAREDNESS CHECKLISTS      -->
+            <!-- ============================================ -->
+            <div id="prep-panel" class="tab-panel">
+                <div class="panel-card animate-slide-in">
+                    <h2 style="font-size:24px; font-weight:800; color:var(--primary); margin-bottom:16px;"><i class="fa-solid fa-suitcase-rolling"></i> Trek Preparedness Guide</h2>
+                    <p class="text-muted" style="margin-bottom:20px;">A comprehensive gear log and physical guidelines to prepare for the Himalayas.</p>
+                    
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+                        <div style="background:var(--bg-light); padding:20px; border-radius:8px;">
+                            <h4 style="font-weight:800; font-size:13px; color:var(--primary); margin-bottom:12px;"><i class="fa-solid fa-list-check"></i> Gear Checklist</h4>
+                            <ul style="font-size:12px; color:var(--text-muted); line-height:1.8; list-style-position:inside;">
+                                <li>Thermal body layers</li>
+                                <li>Waterproof windbreakers</li>
+                                <li>Sturdy trekking boots (broken-in)</li>
+                                <li>Warm sleeping bag (-10°C)</li>
+                                <li>Polarized sunglasses & UV cream</li>
+                            </ul>
+                        </div>
+                        <div style="background:var(--bg-light); padding:20px; border-radius:8px;">
+                            <h4 style="font-weight:800; font-size:13px; color:var(--primary); margin-bottom:12px;"><i class="fa-solid fa-dumbbell"></i> Fitness Guidelines</h4>
+                            <p style="font-size:12px; color:var(--text-muted); line-height:1.6;">
+                                We recommend cards representing 5-8km of walking with 10kg loaded backpacks twice a week starting 1 month before your departure. Cardio workouts greatly aid lung capacity for high altitude base camps.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- TAB PANEL: TREK MANAGEMENT SYSTEM            -->
+            <!-- ============================================ -->
+            <div id="treks-panel" class="tab-panel">
+                <div class="panel-card animate-slide-in">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Expedition Trek Management System</h3>
+                            <p class="card-title-sub">Register new mountain trekking destinations, customize packages, durations, leaders, participants, and upload multiple photos.</p>
+                        </div>
+                        <button class="btn btn-sm" id="btn-add-trek" style="width: auto;">
+                            <i class="fa-solid fa-plus"></i> Register New Trek
+                        </button>
+                    </div>
+
+                    <div class="table-responsive" style="margin-top: 20px;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ref ID</th>
+                                    <th>Trek Destination / Route</th>
+                                    <th>Price</th>
+                                    <th>Duration</th>
+                                    <th>Difficulty</th>
+                                    <th>Leader</th>
+                                    <th>Photos</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="treks-table-body">
+                                <!-- JS Populated trek packages -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- TAB PANEL: SATURDAY HIKE MANAGEMENT SYSTEM   -->
+            <!-- ============================================ -->
+            <div id="saturday-hikes-panel" class="tab-panel">
+                <div class="panel-card animate-slide-in" style="margin-bottom:24px;">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title"><i class="fa-solid fa-file-image" style="color:var(--primary);"></i> Saturday Public Page Content</h3>
+                            <p class="card-title-sub">Manage the images and text blocks displayed on the public Saturday Subscription Hike page.</p>
+                        </div>
+                        <button class="btn btn-sm" id="btn-add-saturday-block" style="width: auto;">
+                            <i class="fa-solid fa-plus"></i> Add Content Block
+                        </button>
+                    </div>
+                    
+                    <div class="table-responsive" style="margin-top: 20px;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Photo</th>
+                                    <th>Text Content</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="saturday-blocks-table-body">
+                                <!-- JS Populated saturday blocks -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="panel-card animate-slide-in">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Saturday Subscription Hikes</h3>
+                            <p class="card-title-sub">Manage upcoming Saturday hikes and view subscription bookings.</p>
+                        </div>
+                        <button class="btn btn-sm" id="btn-add-saturday-hike" style="width: auto;">
+                            <i class="fa-solid fa-plus"></i> Add Saturday Hike
+                        </button>
+                    </div>
+
+                    <div class="table-responsive" style="margin-top: 20px;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date / Destination</th>
+                                    <th>Price</th>
+                                    <th>Difficulty</th>
+                                    <th>Leader</th>
+                                    <th>Subscribers</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="saturday-hikes-table-body">
+                                <!-- JS Populated saturday hikes -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="panel-card animate-slide-in" style="margin-top:24px;">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title"><i class="fa-solid fa-file-signature" style="color:var(--primary);"></i> Hike Subscription Bookings</h3>
+                            <p class="card-title-sub">Review and confirm hikers who have subscribed to Saturday events.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="table-responsive" style="margin-top: 20px;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Subscriber Name</th>
+                                    <th>Hike Target</th>
+                                    <th>Contact Info</th>
+                                    <th>Receipt</th>
+                                    <th>Status</th>
+                                    <th>Confirm Booking</th>
+                                </tr>
+                            </thead>
+                            <tbody id="saturday-bookings-table-body">
+                                <!-- JS Populated saturday bookings -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- TAB PANEL: COMMUNITY LOG PANEL               -->
+            <!-- ============================================ -->
+            <div id="community-log-panel" class="tab-panel">
+                <div class="panel-card animate-slide-in">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Community Members Log</h3>
+                            <p class="card-title-sub">Add and manage hikers and trekkers, log completed distances, and build cumulative demographics dynamically.</p>
+                        </div>
+                        <button class="btn btn-sm" id="btn-add-member" style="width: auto;">
+                            <i class="fa-solid fa-plus"></i> Add Community Entry
+                        </button>
+                    </div>
+
+                    <div class="table-responsive" style="margin-top: 20px;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Activity Type</th>
+                                    <th>Distance Logged (KM)</th>
+                                    <th>Total Trips</th>
+                                    <th>Gender</th>
+                                    <th>Age</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="community-table-body">
+                                <!-- JS Populated community members -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- TAB PANEL: COST MANAGEMENT SYSTEM           -->
+            <!-- ============================================ -->
+            <div id="costs-panel" class="tab-panel">
+                <div class="panel-card animate-slide-in">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Operational Cost Management System</h3>
+                            <p class="card-title-sub">Log, edit, and track expenditures. Only accessible to system administrators.</p>
+                        </div>
+                        <button class="btn btn-sm" id="btn-add-cost" style="width: auto;">
+                            <i class="fa-solid fa-plus"></i> Add New Expense
+                        </button>
+                    </div>
+
+                    <div class="table-responsive" style="margin-top: 20px;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ref ID</th>
+                                    <th>Category</th>
+                                    <th>Description / Items purchased</th>
+                                    <th>Amount (Rs.)</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="costs-table-body">
+                                <!-- JS Populated expense elements -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- TAB PANEL: BOOKING & PAYMENT VERIFICATION   -->
+            <!-- ============================================ -->
+            <div id="bookings-panel" class="tab-panel">
+                <div class="panel-card animate-slide-in">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title"><i class="fa-solid fa-address-book" style="color:var(--primary);"></i> Trek Bookings Management</h3>
+                            <p class="card-title-sub">Review registered client lists, departure dates, pax details, and manage bookings.</p>
+                        </div>
+                        <button class="btn btn-sm" onclick="downloadBookingsExcel()" style="background: #217346; color: white; gap: 8px; white-space:nowrap;">
+                            <i class="fa-solid fa-file-excel"></i> Export Excel
+                        </button>
+                    </div>
+                    <!-- Confirmed Participants Avatar Strip -->
+                    <div id="confirmed-participants-strip" style="margin-top:16px; padding:14px 16px; background:linear-gradient(135deg, #f0fdf4, #dcfce7); border-radius:8px; border:1px solid #bbf7d0; display:none;"></div>
+
+                    <div class="table-responsive" style="margin-top: 20px;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Client / Lead Contact</th>
+                                    <th>Trek Details</th>
+                                    <th>Departure</th>
+                                    <th>Pax Count</th>
+                                    <th>Amount</th>
+                                    <th>Receipt</th>
+                                    <th>Status</th>
+                                    <th>Confirm Booking</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bookings-table-body">
+                                <!-- Bookings queue populated via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div style="margin-top: 16px; display: flex; justify-content: flex-end;">
+                        <button class="btn" onclick="downloadBookingsExcel()" style="background: #217346; color: white; gap: 8px;">
+                            <i class="fa-solid fa-file-excel"></i> Download All Bookings (Excel)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- TAB PANEL: 💳 PAYMENT VERIFICATION CONSOLE   -->
+            <!-- ============================================ -->
+            <div id="payments-panel" class="tab-panel">
+                <div class="panel-card animate-slide-in">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title"><i class="fa-solid fa-file-invoice-dollar" style="color:var(--primary);"></i> Payments Reconcile &amp; Verify Console</h3>
+                            <p class="card-title-sub">Inspect submitted payment screenshots for all registrations and confirm pending transactions.</p>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive" style="margin-top: 20px;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Client Name</th>
+                                    <th>Trek / Hike Target</th>
+                                    <th>Amount</th>
+                                    <th>Screenshot Receipt</th>
+                                    <th>Transaction Notes</th>
+                                    <th>Status</th>
+                                    <th>Confirm Booking</th>
+                                </tr>
+                            </thead>
+                            <tbody id="payments-table-body">
+                                <!-- Reconciled payments populated via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- TAB PANEL: DYNAMIC WEBSITE CONTENT EDITOR   -->
+            <!-- ============================================ -->
+            <div id="content-panel" class="tab-panel">
+                <div class="panel-grid">
+                    
+                    <!-- Left: Editor Form -->
+                    <div class="panel-card animate-slide-in">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Text Content & Brand Logo Manager</h3>
+                                <p class="card-title-sub">Modify titles, brand texts, logo symbols, and dashboard details to edit anything globally in real-time.</p>
+                            </div>
+                            <i class="fa-solid fa-sliders" style="color: var(--primary);"></i>
+                        </div>
+
+                        <form id="content-form" style="margin-top: 20px;">
+                            <!-- SECTION 1: SITE LOGO & BRAND NAME -->
+                            <div class="editable-field-group">
+                                <div class="field-label-row" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 12px;">
+                                    <label class="form-group" style="margin-bottom: 0;"><span style="font-weight:700; color:var(--primary);"><i class="fa-solid fa-mountain"></i> 1. Brand & Site Logo Settings</span></label>
+                                    <span class="field-desc" style="font-size: 11px; color: var(--text-muted);">Change website name and upload custom logo</span>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group" style="flex: 2;">
+                                        <label for="edit-logo-name">Website Name Text</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" id="edit-logo-name" class="form-input" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row" style="align-items: center; margin-top: 8px;">
+                                    <div class="form-group" style="flex: 1;">
+                                        <label for="edit-logo-file">Upload Logo Image (Custom Logo)</label>
+                                        <input type="file" id="edit-logo-file" class="form-input" accept="image/*" style="padding: 6px;">
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 8px; margin-top: 12px;">
+                                        <div id="logo-preview-box" style="width: 50px; height: 50px; border: 1px dashed var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; background: var(--bg-light); overflow: hidden; margin-right: 8px;">
+                                            <i class="fa-solid fa-image" style="color: var(--text-disabled);"></i>
+                                        </div>
+                                        <button type="button" id="delete-logo-btn" class="btn btn-secondary btn-sm" style="height: 38px; padding: 0 12px; display: flex; align-items: center; gap: 6px; background-color: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; font-weight: 600; font-size: 12px;">
+                                            <i class="fa-solid fa-trash-can"></i> Remove Logo
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SECTION 2: HERO TEXT -->
+                            <div class="editable-field-group" style="margin-top: 24px;">
+                                <div class="field-label-row" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 12px;">
+                                    <label class="form-group" style="margin-bottom: 0;"><span style="font-weight:700; color:var(--primary);"><i class="fa-solid fa-heading"></i> 2. Hero Section Headlines</span></label>
+                                    <span class="field-desc" style="font-size: 11px; color: var(--text-muted);">Main marketing content on homepages</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-hero-title">Main Hero Title Text</label>
+                                    <div class="input-wrapper">
+                                        <input type="text" id="edit-hero-title" class="form-input" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-hero-desc">Hero Description Blurb Text</label>
+                                    <div class="textarea-wrapper">
+                                        <textarea id="edit-hero-desc" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-hero-btn">Call-to-Action Action Button Label</label>
+                                    <div class="input-wrapper">
+                                        <input type="text" id="edit-hero-btn" class="form-input" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                        <label for="edit-hero-photos" style="margin-bottom: 0;">Upload Multiple Hero Strip Photos (Scrollable Gallery)</label>
+                                        <button type="button" id="clear-hero-photos-btn" class="btn btn-secondary btn-sm" style="height: 28px; padding: 0 10px; display: flex; align-items: center; gap: 4px; background-color: #ff9800; color: white; border: none; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; font-weight: 600; font-size: 11px;">
+                                            <i class="fa-solid fa-eraser"></i> Clear Photo Strip
+                                        </button>
+                                    </div>
+                                    <input type="file" id="edit-hero-photos" class="form-input" accept="image/*" multiple style="padding: 6px;">
+                                    <div id="hero-photos-preview-box" style="display:flex; gap:8px; margin-top:12px; overflow-x:auto; padding-bottom:4px;"></div>
+                                    <span style="font-size: 10px; color: var(--text-muted); display:block; margin-top:4px;">Select multiple images to override the default hero photo gallery.</span>
+                                </div>
+                                <div class="form-group" style="margin-top: 16px;">
+                                    <label for="edit-hero-bg">Upload Main Hero Section Background Photo</label>
+                                    <input type="file" id="edit-hero-bg" class="form-input" accept="image/*" style="padding: 6px;">
+                                    <div style="display: flex; align-items: center; gap: 8px; margin-top: 12px;">
+                                        <div id="hero-bg-preview-box" style="width: 120px; height: 70px; border: 1px dashed var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; background: var(--bg-light); overflow: hidden; margin-right: 8px;">
+                                            <i class="fa-solid fa-image" style="color: var(--text-disabled);"></i>
+                                        </div>
+                                        <button type="button" id="delete-hero-bg-btn" class="btn btn-secondary btn-sm" style="height: 38px; padding: 0 12px; display: flex; align-items: center; gap: 6px; background-color: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; font-weight: 600; font-size: 12px;">
+                                            <i class="fa-solid fa-trash-can"></i> Remove Background Photo
+                                        </button>
+                                    </div>
+                                    <span style="font-size: 10px; color: var(--text-muted); display:block; margin-top:4px;">Override the default mountain hero background image.</span>
+                                </div>
+                            </div>
+
+                            <!-- SECTION 3: DASHBOARD CUSTOMIZATION -->
+                            <div class="editable-field-group" style="margin-top: 24px;">
+                                <div class="field-label-row" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 12px;">
+                                    <label class="form-group" style="margin-bottom: 0;"><span style="font-weight:700; color:var(--primary);"><i class="fa-solid fa-gauge"></i> 3. Dashboard Text Content ("Edit Anything")</span></label>
+                                    <span class="field-desc" style="font-size: 11px; color: var(--text-muted);">Customize stats cards and header titles</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-dash-title">Main Dashboard Header Title</label>
+                                    <div class="input-wrapper">
+                                        <input type="text" id="edit-dash-title" class="form-input" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="edit-stat1-val">Stat Card 1 (Value)</label>
+                                        <input type="text" id="edit-stat1-val" class="form-input" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edit-stat1-lbl">Stat Card 1 (Description)</label>
+                                        <input type="text" id="edit-stat1-lbl" class="form-input" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="edit-stat2-val">Stat Card 2 (Value)</label>
+                                        <input type="text" id="edit-stat2-val" class="form-input" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edit-stat2-lbl">Stat Card 2 (Description)</label>
+                                        <input type="text" id="edit-stat2-lbl" class="form-input" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SECTION 4: SOCIAL MEDIA MANAGEMENT -->
+                            <div class="editable-field-group" style="margin-top: 24px;">
+                                <div class="field-label-row" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 12px;">
+                                    <label class="form-group" style="margin-bottom: 0;"><span style="font-weight:700; color:var(--primary);"><i class="fa-solid fa-share-nodes"></i> 4. Social Media Management</span></label>
+                                    <span class="field-desc" style="font-size: 11px; color: var(--text-muted);">Upload your social media profile URLs</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-social-instagram"><i class="fa-brands fa-instagram" style="color: #e4405f;"></i> Instagram Link</label>
+                                    <input type="text" id="edit-social-instagram" class="form-input" placeholder="e.g. https://instagram.com/trekwithkaushal">
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-social-tiktok"><i class="fa-brands fa-tiktok" style="color: #000000;"></i> TikTok Link</label>
+                                    <input type="text" id="edit-social-tiktok" class="form-input" placeholder="e.g. https://tiktok.com/@trekwithkaushal">
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-social-facebook"><i class="fa-brands fa-facebook-f" style="color: #1877f2;"></i> Facebook Link</label>
+                                    <input type="text" id="edit-social-facebook" class="form-input" placeholder="e.g. https://facebook.com/trekwithkaushal">
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-social-whatsapp"><i class="fa-brands fa-whatsapp" style="color: #25d366;"></i> WhatsApp Link or Number (e.g. 9779800000000)</label>
+                                    <input type="text" id="edit-social-whatsapp" class="form-input" placeholder="e.g. 9779800000000">
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-social-youtube"><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> YouTube Link</label>
+                                    <input type="text" id="edit-social-youtube" class="form-input" placeholder="e.g. https://youtube.com/c/trekwithkaushal">
+                                </div>
+                            </div>
+
+                            <!-- SECTION 5: QR & BANK ACCOUNT INFO -->
+                            <div class="editable-field-group" style="margin-top: 24px;">
+                                <div class="field-label-row" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 12px;">
+                                    <label class="form-group" style="margin-bottom: 0;"><span style="font-weight:700; color:var(--primary);"><i class="fa-solid fa-qrcode"></i> 5. QR Code & Bank Account Upload</span></label>
+                                    <span class="field-desc" style="font-size: 11px; color: var(--text-muted);">Configure client deposit parameters</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-bank-name">Bank Name</label>
+                                    <input type="text" id="edit-bank-name" class="form-input" placeholder="e.g. Nabil Bank Ltd.">
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-bank-acc">Account Number</label>
+                                    <input type="text" id="edit-bank-acc" class="form-input" placeholder="e.g. 0110175003291">
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-bank-holder">Account Holder Name</label>
+                                    <input type="text" id="edit-bank-holder" class="form-input" placeholder="e.g. Trek With Kaushal Pvt. Ltd.">
+                                </div>
+                                <div class="form-row" style="align-items: center; margin-top: 8px;">
+                                    <div class="form-group" style="flex: 1;">
+                                        <label for="edit-qr-file">Upload Payment QR Image</label>
+                                        <input type="file" id="edit-qr-file" class="form-input" accept="image/*" style="padding: 6px;">
+                                    </div>
+                                    <div id="qr-preview-box" style="width: 60px; height: 60px; border: 1px dashed var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; background: var(--bg-light); overflow: hidden; margin-top: 12px; margin-right: 8px;">
+                                        <i class="fa-solid fa-qrcode" style="color: var(--text-disabled); font-size: 24px;"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn" style="margin-top: 16px; width:100%;">
+                                <i class="fa-solid fa-cloud-arrow-up"></i> Save Brand Content Changes
+                            </button>
+                        </form>
+
+                        <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
+
+                        <form id="admin-password-form">
+                            <div class="editable-field-group">
+                                <div class="field-label-row" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 12px;">
+                                    <label class="form-group" style="margin-bottom: 0;"><span style="font-weight:700; color:var(--primary);"><i class="fa-solid fa-lock"></i> 6. Security Credentials</span></label>
+                                    <span class="field-desc" style="font-size: 11px; color: var(--text-muted);">Update admin password</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-admin-password">New Admin Password</label>
+                                    <input type="password" id="edit-admin-password" class="form-input" placeholder="Enter new password" required>
+                                </div>
+                                <button type="submit" class="btn" style="width:100%;">
+                                    <i class="fa-solid fa-key"></i> Update Admin Password
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Right: Sticky Live Preview -->
+                    <div style="position: sticky; top: 80px;">
+                        <div class="live-preview-box">
+                            <div class="preview-hero">
+                                <div class="preview-logo" id="prev-logo-container">
+                                    <div id="prev-logo-icon-container" style="display: flex; align-items: center; justify-content: center; margin-right: 6px;">
+                                        <i id="prev-logo-icon" class="fa-solid fa-mountain"></i>
+                                    </div>
+                                    <span id="prev-logo-text">trekwithkaushal</span>
+                                </div>
+                                <h2 class="preview-title" id="prev-hero-title">Immersive Antigravity Mountain Treks</h2>
+                                <p class="preview-desc" id="prev-hero-desc">Experience the majesty of the Himalayas like never before.</p>
+                                <a href="#" class="preview-btn" id="prev-hero-btn" onclick="return false;">Book Adventure</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- TAB PANEL: CLIENT TESTIMONIAL FEEDBACK PANEL-->
+            <!-- ============================================ -->
+            <div id="feedback-panel" class="tab-panel">
+                <div class="panel-grid">
+                    
+                    <!-- Left: Testimonials / Moderation Panel -->
+                    <div>
+                        <h3 class="card-title" style="margin-bottom: 20px;">Customer Testimonials</h3>
+                        <div id="feedback-grid-container" style="display:grid; gap:20px;">
+                            <!-- JS Populated feedback blocks -->
+                        </div>
+                    </div>
+
+                    <!-- Right: Public Add Feedback Form -->
+                    <div style="position: sticky; top: 80px;">
+                        <div class="panel-card animate-slide-in">
+                            <div class="card-header">
+                                <h3 class="card-title" style="font-size: 16px;">Share Your Review</h3>
+                                <i class="fa-solid fa-feather-pointed" style="color: var(--primary);"></i>
+                            </div>
+                            <p class="card-title-sub" style="margin-bottom: 20px;">Submit your trekking feedback. Admin will verify and publish approved entries live.</p>
+                            
+                            <form id="mock-feedback-form">
+                                <div class="form-group">
+                                    <label for="fb-username">Your Full Name</label>
+                                    <div class="input-wrapper">
+                                        <input type="text" id="fb-username" class="form-input" placeholder="John Doe" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fb-rating">Trip Rating</label>
+                                    <div class="select-wrapper">
+                                        <select id="fb-rating" class="form-select" required>
+                                            <option value="5">★★★★★ (5 Stars)</option>
+                                            <option value="4">★★★★☆ (4 Stars)</option>
+                                            <option value="3">★★★☆☆ (3 Stars)</option>
+                                            <option value="2">★★☆☆☆ (2 Stars)</option>
+                                            <option value="1">★☆☆☆☆ (1 Star)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fb-comment">Testimonial Review</label>
+                                    <div class="textarea-wrapper">
+                                        <textarea id="fb-comment" placeholder="Describe your trekking experience, sherpa hospitality, and views..." style="height: 80px;" required></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn" style="width:100%;">
+                                    <i class="fa-solid fa-paper-plane"></i> Submit Feedback
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 4. GUEST SOCIAL FOOTER (IMAGE 1)              -->
+    <!-- ============================================ -->
+    <footer class="public-footer" id="public-footer">
+        <div class="social-links">
+            <a id="footer-social-instagram" href="https://instagram.com" target="_blank" class="social-icon-circle instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a id="footer-social-tiktok" href="https://tiktok.com" target="_blank" class="social-icon-circle tiktok"><i class="fa-brands fa-tiktok"></i></a>
+            <a id="footer-social-facebook" href="https://facebook.com" target="_blank" class="social-icon-circle facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a id="footer-social-whatsapp" href="https://wa.me/9779800000000" target="_blank" class="social-icon-circle whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a id="footer-social-youtube" href="https://youtube.com" target="_blank" class="social-icon-circle youtube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <button class="hide-footer-btn" id="btn-admin-login-trigger">
+            <i class="fa-solid fa-lock"></i> Admin Authentication Gate
+        </button>
+    </footer>
+
+    <!-- ============================================ -->
+    <!-- MODAL DIALOG: SECURITY ACCESS SIGN-IN        -->
+    <!-- ============================================ -->
+    <div id="admin-login-modal" class="modal-overlay">
+        <div class="modal-card" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3 class="card-title" style="font-size: 20px;">Admin Authentication Gate</h3>
+                <button class="modal-close" id="btn-login-close"><i class="fa-solid fa-circle-xmark"></i></button>
+            </div>
+            
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-password">Security Access Code</label>
+                    <input type="password" id="login-password" class="form-input" placeholder="••••••••" required autocomplete="current-password">
+                    <div id="error-message" class="error-message" style="display:none; color:var(--danger); font-size:11px; margin-top:8px;">
+                        <i class="fa-solid fa-circle-exclamation"></i> Incorrect security access code.
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%; margin-top: 8px;">
+                    <i class="fa-solid fa-right-to-bracket"></i> Authenticate Credentials
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- MODAL DIALOG: ADD/EDIT EXPEDITION TREK       -->
+    <!-- ============================================ -->
+    <div id="trek-modal" class="modal-overlay">
+        <div class="modal-card" style="max-width: 500px;">
+            <div class="modal-header">
+                <h3 class="card-title" id="trek-modal-title">Register New Trek Package</h3>
+                <button class="modal-close" id="btn-trek-close"><i class="fa-solid fa-circle-xmark"></i></button>
+            </div>
+            
+            <form id="trek-form">
+                <div class="form-group">
+                    <label for="trek-name">Trek Destination Route Name</label>
+                    <input type="text" id="trek-name" class="form-input" placeholder="e.g. Everest Base Camp Trek" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="trek-price">Package Pricing (Rs.)</label>
+                        <input type="number" id="trek-price" class="form-input" placeholder="1200" min="10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="trek-duration">Trip Duration</label>
+                        <input type="text" id="trek-duration" class="form-input" placeholder="e.g. 14 Days or 3D 4N" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="trek-date">Departure Date</label>
+                        <input type="text" id="trek-date" class="form-input" placeholder="e.g. 22/05/2026" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="trek-leader">Trek Leader Name</label>
+                        <input type="text" id="trek-leader" class="form-input" placeholder="e.g. Pasang Sherpa" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="trek-map-link">Google Maps Route Link (Optional)</label>
+                    <input type="url" id="trek-map-link" class="form-input" placeholder="e.g. https://maps.app.goo.gl/...">
+                </div>
+
+                <div class="form-group">
+                    <label for="trek-description">Detailed Itinerary & Description</label>
+                    <textarea id="trek-description" class="form-input" placeholder="Describe the hike overview, route summary, what to bring, disclaimer, and price details..." style="min-height: 120px;"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="trek-difficulty">Expedition Difficulty Index</label>
+                    <select id="trek-difficulty" class="form-select" required>
+                        <option value="Easy">🟢 Easy Trail (Beginners)</option>
+                        <option value="Medium" selected>🟡 Medium Trail (Moderate)</option>
+                        <option value="Hard">🔴 Hard Trail (Experienced)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="trek-status">Trek/Hike Status</label>
+                    <select id="trek-status" class="form-select" required>
+                        <option value="Upcoming" selected>📅 Upcoming (Active Schedule)</option>
+                        <option value="Completed">✅ Completed (Archive Record)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="trek-participants">Participants List Roster</label>
+                    <textarea id="trek-participants" placeholder="e.g. John (M), Sarah (F), Emma (F)"></textarea>
+                    <span style="font-size:10px; color:var(--text-muted);">Enter names followed by (M) or (F) separated by commas to render live avatar counts.</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Trek Photo Gallery (Upload multiple photos)</label>
+                    <input type="file" id="trek-photos-input" class="form-input" multiple accept="image/*" style="padding: 6px;">
+                    <div class="photo-thumbnail-grid" id="modal-photo-thumbnails">
+                        <!-- Preview thumbnails -->
+                    </div>
+                </div>
+
+                <button type="submit" class="btn" style="width:100%; margin-top: 12px;">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Trek Package
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- MODAL DIALOG: ADD/EDIT SATURDAY PAGE BLOCK   -->
+    <!-- ============================================ -->
+    <div id="saturday-block-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="card-title" id="saturday-block-modal-title">Add Page Block</h3>
+                <button class="modal-close" id="btn-saturday-block-close"><i class="fa-solid fa-circle-xmark"></i></button>
+            </div>
+            
+            <form id="saturday-block-form">
+                <div class="form-group">
+                    <label>Upload Photo</label>
+                    <input type="file" id="saturday-block-photo" class="form-input" accept="image/*" style="padding: 6px;">
+                    <div id="saturday-block-photo-preview" style="margin-top:10px; max-width: 100%; max-height: 200px;"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Text Content (HTML allowed)</label>
+                    <textarea id="saturday-block-text" placeholder="Enter text..." style="height: 150px;"></textarea>
+                </div>
+
+                <button type="submit" class="btn" style="width:100%; margin-top: 12px;">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Block
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- MODAL DIALOG: ADD/EDIT SATURDAY HIKE         -->
+    <!-- ============================================ -->
+    <div id="saturday-modal" class="modal-overlay">
+        <div class="modal-card" style="max-width: 500px;">
+            <div class="modal-header">
+                <h3 class="card-title" id="saturday-modal-title">Register Saturday Hike</h3>
+                <button class="modal-close" id="btn-saturday-close"><i class="fa-solid fa-circle-xmark"></i></button>
+            </div>
+            
+            <form id="saturday-form">
+                <div class="form-group">
+                    <label for="saturday-destination">Hike Target / Destination</label>
+                    <input type="text" id="saturday-destination" class="form-input" placeholder="e.g. Shivapuri Peak" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="saturday-price">Price (Rs.)</label>
+                        <input type="number" id="saturday-price" class="form-input" placeholder="25" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="saturday-date">Date</label>
+                        <input type="text" id="saturday-date" class="form-input" placeholder="e.g. Next Saturday" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="saturday-leader">Hike Leader</label>
+                    <input type="text" id="saturday-leader" class="form-input" placeholder="e.g. Ram" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="saturday-map-link">Google Maps Route Link (Optional)</label>
+                    <input type="url" id="saturday-map-link" class="form-input" placeholder="e.g. https://maps.app.goo.gl/...">
+                </div>
+
+                <div class="form-group">
+                    <label for="saturday-description">Detailed Itinerary & Description</label>
+                    <textarea id="saturday-description" class="form-input" placeholder="Describe the Saturday hike overview, checkpoints, itinerary details..." style="min-height: 100px;"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="saturday-difficulty">Difficulty Index</label>
+                    <select id="saturday-difficulty" class="form-select" required>
+                        <option value="Easy">🟢 Easy Trail</option>
+                        <option value="Medium" selected>🟡 Medium Trail</option>
+                        <option value="Hard">🔴 Hard Trail</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="saturday-status">Hike Status</label>
+                    <select id="saturday-status" class="form-select" required>
+                        <option value="Upcoming" selected>📅 Upcoming (Active Schedule)</option>
+                        <option value="Completed">✅ Completed (Archive Record)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="saturday-participants">Subscribed Participants Roster</label>
+                    <textarea id="saturday-participants" placeholder="e.g. John (M), Sarah (F)"></textarea>
+                    <span style="font-size:10px; color:var(--text-muted);">Enter names followed by (M) or (F) separated by commas.</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Hike Photo Gallery (Upload multiple photos)</label>
+                    <input type="file" id="saturday-photos-input" class="form-input" multiple accept="image/*" style="padding: 6px;">
+                    <div class="photo-thumbnail-grid" id="saturday-modal-photo-thumbnails">
+                        <!-- Preview thumbnails -->
+                    </div>
+                </div>
+
+                <button type="submit" class="btn" style="width:100%; margin-top: 12px;">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Saturday Hike
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- MODAL DIALOG: COMMUNITY ENTRY FORM           -->
+    <!-- ============================================ -->
+    <div id="community-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="card-title" id="community-modal-title">Log Community Member</h3>
+                <button class="modal-close" id="btn-community-close"><i class="fa-solid fa-circle-xmark"></i></button>
+            </div>
+            
+            <form id="community-form">
+                <div class="form-group">
+                    <label for="member-name">Member Name</label>
+                    <input type="text" id="member-name" class="form-input" placeholder="e.g. Velin R." required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="member-category">Category</label>
+                        <select id="member-category" class="form-select" required>
+                            <option value="Hike">Hike (&le; 2 Days)</option>
+                            <option value="Trek">Trek (&gt; 2 Days)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="member-gender">Gender</label>
+                        <select id="member-gender" class="form-select" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other / Unknown</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="member-current-stats" style="font-size: 12px; font-weight: 700; color: var(--primary); margin-bottom: 12px; padding: 8px; background: var(--bg-light); border-radius: 4px; display: none;"></div>
+
+                <div class="form-row" id="member-stats-row">
+                    <div class="form-group">
+                        <label for="member-distance" id="lbl-member-distance">Add Distance (+ KM)</label>
+                        <input type="number" id="member-distance" class="form-input" placeholder="0" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="member-trips" id="lbl-member-trips">Add Trips/Hikes (+)</label>
+                        <input type="number" id="member-trips" class="form-input" placeholder="0" min="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="member-age">Age (Years)</label>
+                    <input type="number" id="member-age" class="form-input" placeholder="28" min="5" max="100" required>
+                </div>
+
+                <button type="submit" class="btn" style="width:100%; margin-top: 12px;">
+                    <i class="fa-solid fa-user-plus"></i> Save Member Record
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- DIALOG MODAL: LOG OPERATIONAL COSTS          -->
+    <!-- ============================================ -->
+    <div id="cost-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="card-title" id="modal-title">Log Business Expense</h3>
+                <button class="modal-close" id="btn-cost-close"><i class="fa-solid fa-circle-xmark"></i></button>
+            </div>
+            
+            <form id="cost-form">
+                <div class="form-group">
+                    <label for="cost-category">Expense Classification Category</label>
+                    <select id="cost-category" class="form-select" required>
+                        <option value="" disabled selected>Choose a category</option>
+                        <option value="Guides">Guides / Staff Salaries</option>
+                        <option value="Permits">Permits & Fees</option>
+                        <option value="Equipment">Equipment / Gear Maintenance</option>
+                        <option value="Transport">Logistics / Transportation</option>
+                        <option value="Marketing">Marketing / Advertisement</option>
+                        <option value="Catering">Food / Catering / Lodging</option>
+                        <option value="Other">Miscellaneous Outlays</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="cost-amount">Transaction Cost Amount (Rs.)</label>
+                    <input type="number" id="cost-amount" class="form-input" placeholder="250" min="1" step="any" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cost-desc">Expense Description / Details</label>
+                    <textarea id="cost-desc" placeholder="Provide items purchased, personnel paid, or services retained details..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn" style="width:100%; margin-top: 12px;">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Expense Record
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- MODAL DIALOG: HIGH-RESOLUTION SCREENSHOT PREVIEW MODAL    -->
+    <!-- ========================================================= -->
+    <div id="screenshot-view-modal" class="modal-overlay">
+        <div class="modal-card" style="max-width: 600px; text-align:center;">
+            <div class="modal-header">
+                <h3 class="card-title"><i class="fa-solid fa-file-invoice-dollar"></i> Submitted Receipt Screenshot</h3>
+                <button class="modal-close" onclick="closeScreenshotModal()"><i class="fa-solid fa-circle-xmark"></i></button>
+            </div>
+            <div style="max-height: 400px; overflow-y: auto; border: 1px solid var(--border); border-radius:6px; padding:6px; background: #f8fafc; display:flex; align-items:center; justify-content:center;">
+                <img id="screenshot-modal-img" src="" alt="Payment receipt confirmation" style="max-width:100%; height:auto; border-radius:4px; box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+            </div>
+            <div style="margin-top: 14px; font-size:12px; color:var(--text-muted); text-align:left; background:var(--bg-light); padding:10px; border-radius:4px;" id="screenshot-modal-notes">
+                No reference notes provided.
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- MODAL DIALOG: TREK ITINERARY PREVIEW                      -->
+    <!-- ========================================================= -->
+    <div id="itinerary-modal" class="modal-overlay">
+        <div class="modal-card" style="max-width: 800px; text-align:left;">
+            <div class="modal-header">
+                <h3 class="card-title" id="itinerary-modal-title"><i class="fa-solid fa-map"></i> Trek Itinerary Details</h3>
+                <button class="modal-close" onclick="closeItineraryModal()"><i class="fa-solid fa-circle-xmark"></i></button>
+            </div>
+            
+            <div id="itinerary-modal-map" style="margin-bottom: 16px; display: none;">
+                <a href="#" target="_blank" id="itinerary-map-link" class="btn btn-sm btn-secondary" style="display:inline-flex; align-items:center; gap:8px;">
+                    <i class="fa-solid fa-map-location-dot"></i> View Route on Google Maps
+                </a>
+            </div>
+
+            <div style="max-height: 500px; overflow-y: auto; border: 1px solid var(--border); border-radius:6px; padding:16px; background: #fff; line-height: 1.6;" id="itinerary-modal-desc">
+                No description provided.
+            </div>
+
+            <div style="margin-top: 20px; text-align: right;">
+                <button class="hero-btn-primary" id="btn-itinerary-register" onclick="closeItineraryModal(); selectItinerary(window.currentItineraryTrekName || '');">
+                    <i class="fa-solid fa-file-signature"></i> Register for this Trek
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- MODAL DIALOG: PHOTO LIGHTBOX ZOOM                         -->
+    <!-- ========================================================= -->
+    <div id="photo-lightbox-modal" class="modal-overlay" onclick="closePhotoOverlay(event)">
+        <div style="position: relative; max-width: 90vw; max-height: 90vh; text-align: center; margin: auto;">
+            <button class="modal-close" style="position: absolute; top: -30px; right: -30px; color: white; font-size: 30px;" onclick="closePhotoOverlay(event)"><i class="fa-solid fa-circle-xmark"></i></button>
+            <img id="lightbox-img" src="" alt="Zoomed photo" style="max-width: 100%; max-height: 90vh; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.5);">
+        </div>
+    </div>
+
+    <!-- TOAST POPUP CONTAINER -->
+    <div id="toast" class="toast success">
+        <i class="fa-solid fa-circle-check"></i> Action performed successfully
+    </div>
+
+    <!-- Main JavaScript Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
